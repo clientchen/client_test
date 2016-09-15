@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+
+
+        /*body {background-image: url("psb.jpg") ;width: 100%;}*/
+        .aaa{
+            position: absolute;  /*绝对定位*/
+            /*position: relative;   !*相对定位*!*/
+            /*margin:25%;*/       /*外边距*/
+            border-style: solid;
+            padding: 10px;
+            left: 50%;
+            top: 20%;
+
+            height: 400px;
+            width: 300px;
+        }
+       input[type="text" ],[type="password"]{
+           margin: 15px;
+           width: 150px;
+            height: 25px;
+           border-style:solid;
+           position: relative;
+
+
+       }
+        /*input[type="password"]{*/
+           /*margin: 15px;*/
+           /*width: 200px;*/
+            /*height: 25px;border-style:solid;*/
+       /*}*/
+    input[type="radio"],[type="checkbox"],[type="file"],[type="hidden"]{
+        margin: 15px;
+        /*width: 200px;*/
+        /*height: 25px;*/
+    }
+        input[name="love"]{
+            margin: -3px;
+            border: solid;
+            width: 15px;
+        }
+        .bbb{width: 100px;
+            height:35px;}
+        [type="image"]{
+            position: relative;
+            top: 13px;
+        }
+        a{
+
+        }
+    </style>
+
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+</script>
+</head>
+<body>
+
+    <script>
+    console.log("ldjsjflsjlfdj");
+    alert("hljljljljljlj");
+var body = [];
+
+body.push('<form  class="aaa" action="">');
+body.push('<a href="http://mail.163.com/"><img src="image/ab.png"><a href="http://mail.163.com/"><img src="image/ac.png"></a>');
+body.push('姓名：<input type="text" name="username" value=""><br>');
+body.push('密码：<input type="password" name="password" value="" ><br>');
+body.push('性别：<input type="radio" name="sex" value="man"/>男');
+body.push('<input type="radio" name="sex" value="wanman"/>女');
+body.push('<br>');
+body.push('爱好：');
+body.push('<input type="checkbox" checked="checked" name="love" value="lp"/>篮球');
+body.push('<input type="checkbox" name="love" value="zq"/>足球');
+body.push('<input type="checkbox" name="love" value="pq"/>排球');
+body.push('<input type="checkbox" name="love" value="bq"/>冰球');
+body.push('<br>');
+body.push('附件：');
+body.push('<input type="file" name="myfile"><br>');
+body.push('隐藏：');
+body.push('<input type="hidden" name ="userid" value="001"><br>');
+body.push('<input type="reset" class="bbb" value="重置参数">');
+body.push('<input type="image"  src="aaa.png" alt="Submit">');
+body.push('</form>');
+alert("!!!!!!!!!!!!!!!!!!!!!!jlj");
+console.log(body.join())
+$("body").html(body.join(""));
+</script>
+
+<!-- <form  class="aaa" action="">
+      <a href="http://mail.163.com/"><img src="image/ab.png"><a href="http://mail.163.com/"><img src="image/ac.png"></a>
+    姓名：<input type="text" name="username" value=""><br>
+    密码：<input type="password" name="password" value="" ><br>
+
+    性别：<input type="radio" name="sex" value="man"/>男
+    <input type="radio" name="sex" value="wanman"/>女
+    <br>
+
+    爱好：
+    <input type="checkbox" checked="checked" name="love" value="lp"/>篮球
+    <input type="checkbox" name="love" value="zq"/>足球
+    <input type="checkbox" name="love" value="pq"/>排球
+    <input type="checkbox" name="love" value="bq"/>冰球
+    <br>
+    附件：
+    <input type="file" name="myfile"><br>
+    隐藏：
+    <input type="hidden" name ="userid" value="001"><br>
+
+    <input type="reset" class="bbb" value="重置参数">
+    <input type="image"  src="aaa.png" alt="Submit">
+
+
+</form> -->
+<!--<iframe src = "http://mail.163.com/"></iframe>-->
+
+</body>
+</html>
