@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.net.URLDecoder;
 
 /**
  * Created by Administrator on 2016/9/14.
@@ -25,6 +24,7 @@ public class PrintParam extends HttpServlet {
         w.flush();
         w.close();
 
+
     }
 
 
@@ -40,8 +40,7 @@ public class PrintParam extends HttpServlet {
             out.write(buffer,0,len);
 
         }
-//        String param_is = URLDecoder.decode(out.toString("iso-8859-1"),"utf-8");
-//                System.out.println(param_is );
+
         System.out.println(new String(out.toByteArray(),"utf-8"));
 
         Writer w = resp.getWriter();
