@@ -20,25 +20,25 @@
             height: 400px;
             width: 300px;
         }
-       input[type="text" ],[type="password"]{
-           margin: 15px;
-           width: 150px;
+        input[type="text" ],[type="password"]{
+            margin: 15px;
+            width: 150px;
             height: 25px;
-           border-style:solid;
-           position: relative;
+            border-style:solid;
+            position: relative;
 
 
-       }
+        }
         /*input[type="password"]{*/
-           /*margin: 15px;*/
-           /*width: 200px;*/
-            /*height: 25px;border-style:solid;*/
-       /*}*/
-    input[type="radio"],[type="checkbox"],[type="file"],[type="hidden"]{
-        margin: 15px;
+        /*margin: 15px;*/
         /*width: 200px;*/
-        /*height: 25px;*/
-    }
+        /*height: 25px;border-style:solid;*/
+        /*}*/
+        input[type="radio"],[type="checkbox"],[type="file"],[type="hidden"]{
+            margin: 15px;
+            /*width: 200px;*/
+            /*height: 25px;*/
+        }
         input[name="love"]{
             margin: -3px;
             border: solid;
@@ -75,7 +75,7 @@
 //        $("[style='checkbox'][checked]").each(function(){
 //            str+=$(this).val()+",";}
 //        data.love=str;
-       var love1=$("input[type='checkbox']:checked").each(function(){
+        var love1=$("input[type='checkbox']:checked").each(function(){
             str+=$(this).val()+" , ";
 //           alert(str);
         });
@@ -88,7 +88,19 @@
 
         console.log(data);
 
-        var http_request = new XMLHttpRequest();
+
+        $.ajax(
+                {url:"http://localhost:8080/param_return",
+            type:"post",
+            data:JSON.stringify(data),
+            success:function(result){
+           alert(result)
+        }}
+        );
+
+
+
+    /*    var http_request = new XMLHttpRequest();
         http_request.onreadystatechange = function(){
             if(http_request.readyState == 4) {
 //                response
@@ -101,7 +113,7 @@
         console.log(JSON.stringify(data));
 
         http_request.send(JSON.stringify( data));
-
+*/
         $("form").submit(function(event){
             event.preventDefault();
 
@@ -112,33 +124,33 @@
 </script>
 
 <form  class="aaa" action="">
-      <a href="http://mail.163.com/"><img src="image/ab.png"><a href="http://mail.163.com/"><img src="image/ac.png"></a>
-    姓名：<input type="text" name="username" value=""><br>
-    密码：<input type="password" name="password" value="" ><br>
+    <a href="http://mail.163.com/"><img src="image/ab.png"><a href="http://mail.163.com/"><img src="image/ac.png"></a>
+        姓名：<input type="text" name="username" value=""><br>
+        密码：<input type="password" name="password" value="" ><br>
 
-    性别：<input type="radio" name="sex" value="man"/>男
-    <input type="radio" name="sex" value="wanman"/>女
-    <br>
-城市：<select id="s1" name="city">
-          <option value="北京">北京</option>
+        性别：<input type="radio" name="sex" value="man"/>男
+        <input type="radio" name="sex" value="wanman"/>女
+        <br>
+        城市：<select id="s1" name="city">
+            <option value="北京">北京</option>
 
-              <option value="上海">上海</option>
-              <option value="广州">广州</option>
+            <option value="上海">上海</option>
+            <option value="广州">广州</option>
 
-          </select><br/>
-    爱好：
-    <input type="checkbox" checked="checked" name="love" value="lp"/>篮球
-    <input type="checkbox" name="love" value="zq"/>足球
-    <input type="checkbox" name="love" value="pq"/>排球
-    <input type="checkbox" name="love" value="bq"/>冰球
-    <br>
-    附件：
-    <input type="file" name="myfile"><br>
-    隐藏：
-    <input type="hidden" name ="userid" value="001"><br>
+        </select><br/>
+        爱好：
+        <input type="checkbox" checked="checked" name="love" value="lp"/>篮球
+        <input type="checkbox" name="love" value="zq"/>足球
+        <input type="checkbox" name="love" value="pq"/>排球
+        <input type="checkbox" name="love" value="bq"/>冰球
+        <br>
+        附件：
+        <input type="file" name="myfile"><br>
+        隐藏：
+        <input type="hidden" name ="userid" value="001"><br>
 
-    <input type="reset" class="bbb" value="重置参数">
-    <input type="image"  src="aaa.png" alt="Submit" onsubmit="false" onclick="ajaxparam(this)"/>
+        <input type="reset" class="bbb" value="重置参数">
+        <input type="image"  src="aaa.png" alt="Submit" onsubmit="false" onclick="ajaxparam(this)"/>
 
 
 </form>

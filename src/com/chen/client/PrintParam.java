@@ -16,20 +16,23 @@ public class PrintParam extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        resp.setHeader("content-type","text/html;charset=UTF-8");
+        req.setCharacterEncoding("UTF-8");
         String name = req.getParameter("name");
         System.out.println(name);
         Writer w = resp.getWriter();
         w.append("ok!!!");
         w.flush();
         w.close();
-
+//
 
     }
 
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setHeader("content-type","text/html;charset=UTF-8");
+        resp.setCharacterEncoding("UTF-8");
         InputStream in =new BufferedInputStream( req.getInputStream());
         int len = 0;
         byte[] buffer = new byte[2048];

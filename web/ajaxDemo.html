@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        .ccc {
+            border-style: solid;
+        }
+    </style>
+
+    <title>ajax演示</title>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#login").click(function () {
+                var data = {
+                    name: $("input[name=username]").val(),
+                    pass: $("input[name=password]").val()
+                }
+
+                $.ajax({
+
+                    url: "http://localhost:8080/param_return",
+                    type: "POST",
+                    data:JSON.stringify(data),
+                    success: function (data) {
+                        alert(data);
+
+
+                    }
+
+                })
+//                alert("name=" + name + "  " + "passw" + pass);
+            })
+        })
+        $("form").submit(function (event) {
+            event.preventDefault();
+        })
+        alert("name=" + name + "  " + "passw" + pass);
+    </script>
+</head>
+<body>
+
+<form class="ccc" action="">
+    <input type="text" name="username" value=""/>
+    <input type="password" name="password" value=""/>
+    <!--<button id="login" onclick="login(this)">登陆</button>-->
+    <input type="button" id="login" value="登陆"/>
+
+</form>
+
+
+<div>
+    <script type="text/javascript">
+        var d = new Date();
+        document.write("从 1970/01/01 至今已有：" + d.getTime() + " 毫秒。");
+    </script>
+</div>
+</body>
+</html>
