@@ -11,7 +11,7 @@
 # Java class files
 *.class
 
-*.iml
+#*.iml
 
 classes/
 build/

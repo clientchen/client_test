@@ -78,7 +78,7 @@ public class Dome {
             while (rs.next()) {
                 User user = new User();
                 user.setUser_id(rs.getInt("userId"));
-                user.setName(rs.getString(2));
+//                user.setName(rs.getString(2));
                 user.setEmail(rs.getString(4));
                 user.setGrade(rs.getInt(5));
 

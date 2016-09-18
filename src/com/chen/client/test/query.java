@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by 陈奇 on 2016/9/16 0016.
  */
-public class query {
+public class Query {
     @Test
     public  void qe() throws Exception {
 
@@ -17,7 +17,7 @@ public class query {
 
         for (User user:users
              ) {
-            System.out.println(user.getName());
+//            System.out.println(user.getName());
         }
     }
 }
