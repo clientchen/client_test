@@ -17,6 +17,7 @@ public class PrintParam extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+
         String name = req.getParameter("name");
         System.out.println(name);
         Writer w = resp.getWriter();
@@ -42,7 +43,7 @@ public class PrintParam extends HttpServlet {
         }
 
         System.out.println(new String(out.toByteArray(),"utf-8"));
-
+        resp.setContentType("text/xml;charset=UTF-8");
         Writer w = resp.getWriter();
         String buffer_out = new String(out.toByteArray(), "utf-8");
         System.out.println(buffer_out);

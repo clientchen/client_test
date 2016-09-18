@@ -70,10 +70,10 @@
         console.log(form.find("[name='username']").val())
         data.name=form.find("[name='username']").val();
         data.pass = form.find("[name='password']").val();
-        data.sex=form.find("[name='sex']").val();
+        data.sex=form.find("[name='sex']:checked").val();
         var str="";
-        $("[name='checkbox'][checked]").each(function(){
-            str+=$(this).val()+",";}
+        $("input[type='checkbox']:checked").each(function(){
+            str+=$(this).val()+",";})
         data.love=str;
         data.ci=select.find("option:selected").text();
 
@@ -82,19 +82,51 @@
 
         console.log(data);
 
-        var http_request = new XMLHttpRequest();
-        http_request.onreadystatechange = function(){
-            if(http_request.readyState == 4) {
-//                response
-                console.log("返回的参数是："+http_request.responseText);
-                alert(http_request.responseText);
-                form.find("[name='username']").val()
-            }
-        }
-        http_request.open("POST", "http://localhost:8080/param_return", true);
-        console.log(JSON.stringify(data));
 
-        http_request.send(JSON.stringify( data));
+//        ########3#########
+        $.ajax({
+            type: "post",
+            contentType: "text/plain;charset=UTF-8",
+            url: "http://localhost:8080/param_return",
+            data:JSON.stringify(data),
+            dataType: "text",
+            success: function (result) {
+                alert("操作成功 : "+result);
+            },
+            error:function(response){
+                alert("error");
+            }
+        });
+
+//        ########3########3################
+
+
+//        $.post("http://localhost:8080/param_return",
+//                JSON.stringify( data),
+//                function(data_R,AAAA){
+//                    alert("ljdflsajjfdalj");
+//
+//                    alert("数据: \n" + data_R + "\n状态: " + AAAA);
+//                },
+//                "text"
+//        );
+
+
+
+
+
+//        var http_request = new XMLHttpRequest();
+//        http_request.onreadystatechange = function(){
+//            if(http_request.readyState == 4) {
+//                console.log("返回的参数是："+http_request.responseText);
+//                alert(http_request.responseText);
+//                form.find("[name='username']").val()
+//            }
+//        }
+//        http_request.open("POST", "http://localhost:8080/param_return", true);
+//        console.log(JSON.stringify(data));
+//
+//        http_request.send(JSON.stringify( data));
 
         $("form").submit(function(event){
             event.preventDefault();
