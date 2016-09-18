@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+
+
+        /*body {background-image: url("psb.jpg") ;width: 100%;}*/
+        .aaa{
+            position: absolute;  /*绝对定位*/
+            /*position: relative;   !*相对定位*!*/
+            /*margin:25%;*/       /*外边距*/
+            border-style: solid;
+            padding: 10px;
+            left: 50%;
+            top: 20%;
+
+            height: 400px;
+            width: 300px;
+        }
+        input[type="text" ],[type="password"]{
+            margin: 15px;
+            width: 150px;
+            height: 25px;
+            border-style:solid;
+            position: relative;
+
+
+        }
+        /*input[type="password"]{*/
+        /*margin: 15px;*/
+        /*width: 200px;*/
+        /*height: 25px;border-style:solid;*/
+        /*}*/
+        input[type="radio"],[type="checkbox"],[type="file"],[type="hidden"]{
+            margin: 15px;
+            /*width: 200px;*/
+            /*height: 25px;*/
+        }
+        input[name="love"]{
+            margin: -3px;
+            border: solid;
+            width: 15px;
+        }
+        .bbb{width: 100px;
+            height:35px;}
+        [type="image"]{
+            position: relative;
+            top: 13px;
+        }
+        a{
+
+        }
+    </style>
+
+</head>
+<body>
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+
+    function ajaxparam(sub_ele){
+        var data = {};
+        var form = $(".aaa");
+
+        var select = $("#s1");
+        console.log(form.find("[name='username']"))
+        console.log(form.find("[name='username']").val())
+        data.name=form.find("[name='username']").val();
+        data.pass = form.find("[name='password']").val();
+        data.sex=form.find("[name='sex']:checked").val();
+        var str="";
+//        $("[style='checkbox'][checked]").each(function(){
+//            str+=$(this).val()+",";}
+//        data.love=str;
+        var love1=$("input[type='checkbox']:checked").each(function(){
+            str+=$(this).val()+" , ";
+//           alert(str);
+        });
+        data.love=str;
+//        data.love= $('input[name=love][checked]').val();
+//        data.ci=select.find("option:selected").text();
+
+        data.city=select.val();
+//        data.love=form.find("[name='love']").val();
+
+        console.log(data);
+
+
+        $.ajax(
+                {url:"http://localhost:8080/param_return",
+            type:"post",
+            data:JSON.stringify(data),
+            success:function(result){
+           alert(result)
+        }}
+        );
+
+
+
+    /*    var http_request = new XMLHttpRequest();
+        http_request.onreadystatechange = function(){
+            if(http_request.readyState == 4) {
+//                response
+                console.log("返回的参数是："+http_request.responseText);
+                alert(http_request.responseText);
+                form.find("[name='username']").text()
+            }
+        }
+        http_request.open("POST", "http://localhost:8080/param_return", true);
+        console.log(JSON.stringify(data));
+
+        http_request.send(JSON.stringify( data));
+*/
+        $("form").submit(function(event){
+            event.preventDefault();
+
+        });
+
+
+    }
+</script>
+
+<form  class="aaa" action="">
+    <a href="http://mail.163.com/"><img src="image/ab.png"><a href="http://mail.163.com/"><img src="image/ac.png"></a>
+        姓名：<input type="text" name="username" value=""><br>
+        密码：<input type="password" name="password" value="" ><br>
+
+        性别：<input type="radio" name="sex" value="man"/>男
+        <input type="radio" name="sex" value="wanman"/>女
+        <br>
+        城市：<select id="s1" name="city">
+            <option value="北京">北京</option>
+
+            <option value="上海">上海</option>
+            <option value="广州">广州</option>
+
+        </select><br/>
+        爱好：
+        <input type="checkbox" checked="checked" name="love" value="lp"/>篮球
+        <input type="checkbox" name="love" value="zq"/>足球
+        <input type="checkbox" name="love" value="pq"/>排球
+        <input type="checkbox" name="love" value="bq"/>冰球
+        <br>
+        附件：
+        <input type="file" name="myfile"><br>
+        隐藏：
+        <input type="hidden" name ="userid" value="001"><br>
+
+        <input type="reset" class="bbb" value="重置参数">
+        <input type="image"  src="aaa.png" alt="Submit" onsubmit="false" onclick="ajaxparam(this)"/>
+
+
+</form>
+<!--<iframe src = "http://mail.163.com/"></iframe>-->
+<div>
+    <script type="text/javascript">
+        var d=new Date();
+        document.write("从 1970/01/01 至今已有：" + d.getTime() + " 毫秒。");
+    </script>
+</div>
+</body>
+</html>

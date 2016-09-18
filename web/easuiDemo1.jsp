@@ -1,0 +1,53 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Administrator
+  Date: 2016/9/16 0016
+  Time: 13:01
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%--<%@taglib prefix="c" uri="http://java.sun.com/jstl/core" %>--%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+    <%--<c:set var="proPath" value="${pageContext.request.contextPath}" />--%>
+    <%--<link rel="stylesheet" type="text/css"--%>
+          <%--href="lib/jquery-easyui-1.4.1/themes/default/easyui.css">--%>
+    <%--<link rel="stylesheet" type="text/css" href="lib/jquery-easyui-1.4.1/themes/icon.css">--%>
+    <%--<script type="text/javascript" src="lib/jquery-easyui-1.4.1/jquery.min.js"></script>--%>
+    <%--<script type="text/javascript" src="lib/jquery-easyui-1.4.1/jquery.easyui.min.js"></script>--%>
+
+        <c:set var="proPath" value="${pageContext.request.contextPath}" />
+        <link rel="stylesheet" type="text/css"
+              href="${proPath}/lib/jquery-easyui-1.4.1/themes/default/easyui.css">
+        <link rel="stylesheet" type="text/css" href="${proPath}/lib/jquery-easyui-1.4.1/themes/icon.css">
+        <script type="text/javascript" src="${proPath}/lib/jquery-easyui-1.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="${proPath}/lib/jquery-easyui-1.4.1/jquery.easyui.min.js"></script>
+
+
+
+        <title>My JSP 'MyJsp.jsp' starting page</title>
+
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="This is my page">
+    <!--
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        -->
+    <script type="text/javascript">
+        $(function(){alert("可以使用了!");});
+    </script>
+</head>
+
+<body>
+<div id="p" class="easyui-panel" style="width:500px;height:200px;padding:10px;"
+     title="My Panel" iconCls="icon-save" collapsible="true">
+
+
+</div>
+</body>
+</html>

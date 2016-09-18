@@ -72,13 +72,22 @@
         data.pass = form.find("[name='password']").val();
         data.sex=form.find("[name='sex']:checked").val();
         var str="";
+
         $("input[type='checkbox']:checked").each(function(){
             str+=$(this).val()+",";})
+//        $("[style='checkbox'][checked]").each(function(){
+//            str+=$(this).val()+",";}
+//        data.love=str;
+       var love1=$("input[type='checkbox']:checked").each(function(){
+            str+=$(this).val()+" , ";
+//           alert(str);
+        });
         data.love=str;
-        data.ci=select.find("option:selected").text();
+//        data.love= $('input[name=love][checked]').val();
+//        data.ci=select.find("option:selected").text();
 
         data.city=select.val();
-        data.love=form.find("[name='love']").val();
+//        data.love=form.find("[name='love']").val();
 
         console.log(data);
 
@@ -95,6 +104,13 @@
             },
             error:function(response){
                 alert("error");
+        var http_request = new XMLHttpRequest();
+        http_request.onreadystatechange = function(){
+            if(http_request.readyState == 4) {
+//                response
+                console.log("返回的参数是："+http_request.responseText);
+                alert(http_request.responseText);
+                form.find("[name='username']").text()
             }
         });
 
@@ -164,11 +180,16 @@
     <input type="hidden" name ="userid" value="001"><br>
 
     <input type="reset" class="bbb" value="重置参数">
-    <input type="image"  src="aaa.png" alt="Submit" onsubmit="false" onclick="ajaxparam(this)">
+    <input type="image"  src="aaa.png" alt="Submit" onsubmit="false" onclick="ajaxparam(this)"/>
 
 
 </form>
 <!--<iframe src = "http://mail.163.com/"></iframe>-->
-
+<div>
+    <script type="text/javascript">
+        var d=new Date();
+        document.write("从 1970/01/01 至今已有：" + d.getTime() + " 毫秒。");
+    </script>
+</div>
 </body>
 </html>
